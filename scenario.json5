@@ -42,7 +42,7 @@
   metadata: {
     agentbeats_ids: {
       medibuddy_bench: "01a1dc6f-ff30-79c0-8c5b-08b149ef1c3f",   // MediBuddy-Bench on agentbeats.dev
-      participant: "01a1dc71-691f-7811-82b7-49bfcf06ebef",
+      participant: "",          // filled in by each submitter
     },
   },
 }
