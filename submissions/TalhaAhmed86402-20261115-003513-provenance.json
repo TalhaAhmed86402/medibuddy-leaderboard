@@ -1,0 +1,22 @@
+{
+  "image_digests": {
+    "/gateway": "ghcr.io/rdi-foundation/agentbeats-gateway@sha256:3f9976889c598092dc4273312ec431cbc48bbe064ff65b5613425f4990bc1d4c",
+    "/medibuddy_bench": "ghcr.io/talhaahmed86402/medibuddy-bench@sha256:6e72e2530134165abde773d23fee43aa12473de7de53b697cacb5bbf76a108b9",
+    "/purple": "ghcr.io/talhaahmed86402/medibuddy-bench-purple@sha256:f690f48effcb9521e0dc5c82404ecc187e471b41bc3807c35b4620a16e9977bc"
+  },
+  "manifest_digests": {
+    "/": "sha256:3BNqHdPCx7zcfRYke9fvD/mqQbbirmuofcd+qbWFkAg=",
+    "/gateway": "sha256:Ba99ymNGSymbrF9jGwLfnZaSnzPrw9sTJ5veaYMxV2Q=",
+    "/medibuddy_bench": "sha256:DjxMBQtBzck05MOBGHy39llTgEU61GNP9+UEdTQzQQ0=",
+    "/purple": "sha256:wJq7eptjY6snT7pR7OIHCKTtNRmKX6yRa8AaOwau4Xs="
+  },
+  "timestamp": "2026-11-15T00:26:09Z",
+  "github_actions": {
+    "run_url": "https://github.com/TalhaAhmed86402/medibuddy-leaderboard/actions/runs/43657954446",
+    "ref": "refs/heads/test-reference-purple",
+    "sha": "a7a275b36259cb3b6e0824b394646e95c4e8f23e",
+    "repository_url": "https://github.com/TalhaAhmed86402/medibuddy-leaderboard",
+    "workflow_ref": "TalhaAhmed86402/medibuddy-leaderboard/.github/workflows/run-scenario.yml@refs/heads/test-reference-purple",
+    "workflow_sha": "a7a275b36259cb3b6e0824b394646e95c4e8f23e"
+  }
+}

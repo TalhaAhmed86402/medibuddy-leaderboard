@@ -1,0 +1,49 @@
+// scenario.json5 for an AgentBeats LEADERBOARD repository made from RDI-Foundation/agentbeats-leaderboard-template.
+// Copy this file to the root of that repository (replacing its example). Fill in the two agentbeats ids after
+// registering the agents on agentbeats.dev. The component manifests are read from this benchmark's repository at the
+// v1.2.0 tag, so a later change to the benchmark cannot silently change a running leaderboard.
+{
+  manifest_version: "0.1.0",
+
+  // No secrets: the benchmark needs none and the reference participant runs without a model. A participant that needs
+  // a key declares it here (for example purple.openai_api_key, stored as the repository secret PURPLE__OPENAI_API_KEY).
+  config_schema: {
+    type: "object",
+    properties: {},
+  },
+
+  components: {
+    gateway: {
+      manifest: "https://raw.githubusercontent.com/RDI-Foundation/agentbeats-gateway/refs/tags/v0.3/amber-manifest.json5",
+      config: {
+        // what the benchmark receives as "config" (the runner adds shard_index / num_shards)
+        assessment_config: { split: "dev", trials: 1 },
+        participant_roles: { green: "medibuddy_bench", purple1: "purple" },   // gateway slot -> role name
+      },
+    },
+    medibuddy_bench: {
+      manifest: "https://raw.githubusercontent.com/TalhaAhmed86402/medibuddy/v1.2.0/amber-manifest.json5",
+      config: {},
+    },
+    purple: {
+      // the reference purple agent; submitters replace this with their own agent's manifest
+      manifest: "https://raw.githubusercontent.com/TalhaAhmed86402/medibuddy/v1.2.0/agentbeats/purple-agent.json5",
+      config: {},
+    },
+  },
+
+  bindings: [
+    { to: "#gateway.green", from: "#medibuddy_bench.a2a" },
+    { to: "#gateway.purple1", from: "#purple.a2a" },              // the gateway's participant slots are purple1..purple5
+    { to: "#medibuddy_bench.proxy", from: "#gateway.proxy", weak: true },   // how the benchmark reaches the participant
+  ],
+
+  exports: { results: "#gateway.results" },
+
+  metadata: {
+    agentbeats_ids: {
+      medibuddy_bench: "01a1dc6f-ff30-79c0-8c5b-08b149ef1c3f",   // MediBuddy-Bench on agentbeats.dev
+      purple: "01a1dc71-691f-7811-82b7-49bfcf06ebef",   // the reference purple agent (test run)
+    },
+  },
+}
